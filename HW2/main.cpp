@@ -6,6 +6,7 @@ DigitalIn pin_up(D3);
 DigitalIn pin_down(D6);
 DigitalIn pin_sel(D5);
 AnalogOut sig(PA_4);
+AnalogIn sig_fil(A0);
 
 int main()
 {
@@ -48,7 +49,7 @@ int main()
 
 
         if (store == 1 ) {
-            ADCdata[j - 1] = sig;
+            ADCdata[j - 1] = sig_fil;
             if (j == 100) {
                 printf("%d\r\n", frequency);
                 for(int k = 0; k < 100; k++) {

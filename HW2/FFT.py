@@ -30,7 +30,7 @@ fig, ax = plt.subplots(2, 1)
 ax[0].plot(t,y)
 ax[0].set_xlabel('Time')
 ax[0].set_ylabel('Amplitude')
-ax[1].plot(frq,abs(Y),'r') # plotting the spectrum
+ax[1].plot(frq/20,abs(Y),'r') # plotting the spectrum
 ax[1].set_xlabel('Freq (Hz)')
 ax[1].set_ylabel('|Y(freq)|')
 plt.show()
