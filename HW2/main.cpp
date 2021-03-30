@@ -10,8 +10,6 @@ AnalogIn sig_fil(A0);
 
 int main()
 {
-    char choose = 1;
-    char run = 1;
     int frequency = 360;
     float T = 1000 / frequency;
     int j= 1;
@@ -43,8 +41,9 @@ int main()
 
         }
         if (i <= 20) sig = i / 20.0f / 1.1f;
-        if (i > 20) sig = (100 - i) / 80.0f / 1.1f;
+        if (i > 20 && i <= 100) sig = (100 - i) / 80.0f / 1.1f;
         if (i > 100) i = 0.0f;
+        if (T * 10 <= 13) T = 1.3;
         wait_us(T * 10 - 13);
 
 
