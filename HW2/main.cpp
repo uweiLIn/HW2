@@ -10,12 +10,14 @@ AnalogIn sig_fil(A0);
 
 int main()
 {
-    int frequency = 360;
+    int frequency = 50;
     float T = 1000 / frequency;
     int j= 1;
     float i = 0.0f;
-    float ADCdata[100];
+    float ADCdata[500];
     char store = 0;
+    int l = 0;
+   
 
     uLCD.printf("\nPlease Select the Frequency\n");
     uLCD.color(RED);
@@ -24,12 +26,12 @@ int main()
 
     while (1) {
         if (pin_up == 1) {
-            frequency += 20;
+            frequency += 2;
             uLCD.locate(0, 6);
             uLCD.printf("%5d Hz", frequency);
         }
         if (pin_down == 1) {
-            frequency -= 20;
+            frequency -= 2;
             uLCD.locate(0, 6);
             uLCD.printf("%5d Hz", frequency);
         }
@@ -46,20 +48,24 @@ int main()
         if (T * 10 <= 13) T = 1.3;
         wait_us(T * 10 - 13);
 
-
-        if (store == 1 ) {
-            ADCdata[j - 1] = sig_fil;
-            if (j == 100) {
-                printf("%d\r\n", frequency);
-                for(int k = 0; k < 100; k++) {
+        if (j == 500) {
+            j = 0;
+            l = 0;
+        } else if (l % (100 * frequency / 500) == 0) { 
+                ADCdata[j] = sig_fil;
+                j++;       
+        }
+        if (store == 1 ) {          
+                //printf("%d\r\n", frequency);
+                for(int k = 0; k < 500; k++) {
                     printf("%lf\r\n", ADCdata[k]);
                 }
-                j = 1;
                 store = 0;
-            }
-            else j++;
+            
         }
         i++;
+        l++;
+       
     }
     
      

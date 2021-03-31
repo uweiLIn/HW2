@@ -16,7 +16,7 @@
             ".text": 1708,
             ".data": 0,
             ".bss": 612,
-            ".text-delta": 32,
+            ".text-delta": -4,
             ".data-delta": 0,
             ".bss-delta": 0
         }
@@ -27,7 +27,7 @@
             ".text": 134,
             ".data": 7,
             ".bss": 33,
-            ".text-delta": -32,
+            ".text-delta": 4,
             ".data-delta": 0,
             ".bss-delta": 0
         }
