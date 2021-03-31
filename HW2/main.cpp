@@ -56,7 +56,6 @@ int main()
                 j++;       
         }
         if (store == 1 ) {          
-                //printf("%d\r\n", frequency);
                 for(int k = 0; k < 500; k++) {
                     printf("%lf\r\n", ADCdata[k]);
                 }
